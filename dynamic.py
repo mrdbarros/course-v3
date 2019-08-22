@@ -29,7 +29,7 @@ def main(
 ):
     "Distributed training of Imagenette."
     gpu = None
-    woof = 0
+    woof = 1
     lr = 1e-3
     size = 128
     alpha = 0.99
@@ -55,7 +55,7 @@ def main(
     if not gpu: print(f'lr: {lr};  size: {size}; alpha: {alpha}; mom: {mom}; eps: {eps}')
 
     #m = globals()[arch]
-    learn = cnn_learner(data,models.resnet18, metrics=[accuracy])
+    learn = cnn_learner(data,models.resnet18, metrics=[accuracy],pretrained=False,opt_func=opt_func)
 
     learn.fit_one_cycle(epochs, lr)
 
