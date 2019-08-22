@@ -55,7 +55,7 @@ def main(
     if not gpu: print(f'lr: {lr};  size: {size}; alpha: {alpha}; mom: {mom}; eps: {eps}')
 
     #m = globals()[arch]
-    learn = cnn_learner(data,models.resnet18)
+    learn = cnn_learner(data,models.resnet18, metrics=[accuracy])
 
     learn.fit_one_cycle(epochs, lr)
 
